@@ -1,0 +1,83 @@
+//
+// Colors
+//
+
+// Grayscale
+$white: #FFF;
+$offWhite: #F1F1F1;
+$lightGray: #CCC;
+$lightMedGray: #999;
+$medGray: #666;
+$darkGray: #333;
+$black: #000;
+
+// Highlights
+$primary: #8217CC;
+$secondary: #867EFF;
+$error: #FF392E;
+
+//
+// Font Imports
+//
+
+// Nunito Sans
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+// Poppins Medium
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,500&display=swap');
+
+//
+// Default Styles
+//
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+
+    color: $darkGray;
+}
+
+a {
+    text-decoration: none;
+    color: $secondary;
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+.btn {
+    display: block;
+    width: fit-content;
+    margin: 15px auto;
+
+    border: none;
+    border-radius: 5px;
+    background-color: $primary;
+    color: $white;
+    
+    padding: 14px 16px;
+
+    &.btn-secondary {
+        background-color: $secondary;
+        color: $white;
+    }
+
+    &.btn-dark {
+        background-color: $darkGray;
+        color: $white;
+    }
+
+    &.btn-light {
+        background-color: $white;
+        color: $primary;
+    }
+}

@@ -1,0 +1,37 @@
+@import '../../styles/imports';
+
+.panel {
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px $lightMedGray;
+
+    max-width: 360px;
+}
+
+.header {
+    margin: 45px 0;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.field {
+    outline: none;
+    border: none;
+    border-bottom: 1px dotted $medGray;
+
+    padding: 10px 20px;
+    margin: 10px 15px;
+
+
+    text-align: center;
+}
+
+.error {
+    height: 10px;
+    font-size: 10px;
+    color: $error;
+}

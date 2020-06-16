@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import React, { useContext } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Services
+import Firebase, { FirebaseContext } from './services/firebase';
+
+// Components
+import SignInComponent from './components/sign-in';
+
+const AppBase = () => {
+    const firebase = useContext(FirebaseContext);
+
+    const test = () => {
+        const user = process.env.REACT_APP_DEV_EMAIL;
+        const pass = process.env.REACT_APP_DEV_PASS;
+
+        if (user && pass) {
+            firebase?.doSignInWithEmailAndPassword(user, pass)
+                .then((res) => console.log(res))
+                .catch((err) => console.error(err));
+        }
+    };
+
+    return (
+        <div className="App">
+            <button onClick={test}>Click Me!</button>
+            <SignInComponent />
+        </div>
+    );
+};
+
+const App = () => {
+    return (
+        <FirebaseContext.Provider value={new Firebase()}>
+            <AppBase />
+        </FirebaseContext.Provider>
+    );
+};
 
 export default App;
