@@ -1,29 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+// Constants
+import routes from './constants/routes';
 
 // Services
 import Firebase, { FirebaseContext } from './services/firebase';
 
-// Components
-import SignInComponent from './components/sign-in';
+// Pages
+import SignInPage from './pages/sign-in/index';
 
 const AppBase = () => {
-    const firebase = useContext(FirebaseContext);
-
-    const test = () => {
-        const user = process.env.REACT_APP_DEV_EMAIL;
-        const pass = process.env.REACT_APP_DEV_PASS;
-
-        if (user && pass) {
-            firebase?.doSignInWithEmailAndPassword(user, pass)
-                .then((res) => console.log(res))
-                .catch((err) => console.error(err));
-        }
-    };
-
     return (
         <div className="App">
-            <button onClick={test}>Click Me!</button>
-            <SignInComponent />
+            <Switch>
+                <Route exact path={routes.home} component={SignInPage} />
+            </Switch>
         </div>
     );
 };
@@ -31,7 +23,9 @@ const AppBase = () => {
 const App = () => {
     return (
         <FirebaseContext.Provider value={new Firebase()}>
-            <AppBase />
+            <Router>
+              <AppBase />
+            </Router>
         </FirebaseContext.Provider>
     );
 };

@@ -6,16 +6,19 @@
     box-shadow: 3px 3px 5px $lightMedGray;
 
     max-width: 360px;
+    padding: 30px;
+    margin: auto;
 }
 
 .header {
-    margin: 45px 0;
+    margin-bottom: 45px;
     text-align: center;
 }
 
 .form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .field {
@@ -32,6 +35,7 @@
 
 .error {
     height: 10px;
-    font-size: 10px;
+    font-size: 14px;
+    text-align: center;
     color: $error;
 }

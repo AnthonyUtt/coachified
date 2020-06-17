@@ -16,6 +16,9 @@ $primary: #8217CC;
 $secondary: #867EFF;
 $error: #FF392E;
 
+// Special
+$gradient: linear-gradient(171deg, $secondary 26%, $primary 100%);
+
 //
 // Font Imports
 //
@@ -81,3 +84,8 @@ a {
         color: $primary;
     }
 }
+
+//
+// Mix-Ins
+//
+
