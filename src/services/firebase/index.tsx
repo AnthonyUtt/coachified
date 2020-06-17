@@ -2,6 +2,9 @@ import { createContext } from 'react';
 import app from 'firebase/app';
 import 'firebase/auth';
 
+import store from '../../redux';
+import { AuthStateChangedAction, AUTH_STATE_CHANGED } from '../../redux/actions';
+
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -26,6 +29,15 @@ class Firebase {
         }
 
         this.auth = app.auth();
+
+        this.auth.onAuthStateChanged((authUser) => {
+            let action: AuthStateChangedAction = {
+                type: AUTH_STATE_CHANGED,
+                authUser: authUser,
+            };
+
+            store.dispatch(action);
+        });
     }
 
     // Firebase Authentication Helpers
@@ -33,6 +45,7 @@ class Firebase {
     doSignInWithEmailAndPassword =
         (email: string, password: string) =>
         this.auth.signInWithEmailAndPassword(email, password);
+    doSignOut = () => this.auth.signOut();
 }
 
 export const FirebaseContext = createContext<Firebase | undefined>(undefined);

@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+// Components
+import ProtectedRoute from './components/protected-route';
+
 // Constants
 import routes from './constants/routes';
 
@@ -8,13 +11,15 @@ import routes from './constants/routes';
 import Firebase, { FirebaseContext } from './services/firebase';
 
 // Pages
+import HubPage from './pages/hub';
 import SignInPage from './pages/sign-in/index';
 
 const AppBase = () => {
     return (
         <div className="App">
             <Switch>
-                <Route exact path={routes.home} component={SignInPage} />
+                <ProtectedRoute exact path={routes.home} component={HubPage} />
+                <Route path={routes.signIn} component={SignInPage} />
             </Switch>
         </div>
     );

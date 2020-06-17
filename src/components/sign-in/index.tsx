@@ -18,10 +18,6 @@ const SignIn = () => {
     const onSubmit = (e: FormEvent) => {
         if (email && pass) {
             firebase?.doSignInWithEmailAndPassword(email, pass)
-                .then((user) => {
-                    //TODO: Add auth user to Redux store
-                    console.log(user);
-                })
                 .catch((err) => setError(err));
         }
 
