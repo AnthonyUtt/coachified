@@ -11,6 +11,7 @@ import routes from './constants/routes';
 import Firebase, { FirebaseContext } from './services/firebase';
 
 // Pages
+import ChatPage from './pages/chat';
 import HubPage from './pages/hub';
 import SignInPage from './pages/sign-in/index';
 
@@ -19,6 +20,7 @@ const AppBase = () => {
         <div className="App">
             <Switch>
                 <ProtectedRoute exact path={routes.home} component={HubPage} />
+                <ProtectedRoute path={routes.chat} component={ChatPage} />
                 <Route path={routes.signIn} component={SignInPage} />
             </Switch>
         </div>

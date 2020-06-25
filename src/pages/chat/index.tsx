@@ -1,18 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
+
+// Components
+import Chat from '../../components/chat';
 
 // Constants
 import routes from '../../constants/routes';
-
-// Services
-import { FirebaseContext } from '../../services/firebase';
 
 // Store
 import store from '../../redux';
 
 const HubPage = () => {
-    const firebase = useContext(FirebaseContext);
-
     const [ redirect, setRedirect ] = useState(false);
 
     const unsubscribe = store.subscribe(() => {
@@ -31,10 +29,8 @@ const HubPage = () => {
     }
 
     return (
-        <div className="HubPage">
-            <p>Hub works!</p>
-            <Link to={routes.chat}>To Chat</Link>
-            <button onClick={firebase?.doSignOut}>Sign Out</button>
+        <div className="ChatPage">
+            <Chat />
         </div>
     );
 };
