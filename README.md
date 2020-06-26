@@ -1,3 +1,6 @@
+# Coachified
+[![Build Status](https://travis-ci.org/AnthonyUtt/coachified.svg?branch=master)](https://travis-ci.org/AnthonyUtt/coachified)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
