@@ -8,7 +8,7 @@ branches:
   - master
   - staging
 addons:
-  ssh_known_hosts: nl1-ts1.a2hosting.com
+  ssh_known_hosts: nl1-ts1.a2hosting.com:7822
 cache:
   directories:
   - node_modules
