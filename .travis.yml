@@ -24,12 +24,12 @@ before_deploy:
 deploy:
 - provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build --port=7822 getcoac1@nl1-ts1.a2hosting.com:/home/getcoac1/coachified.xyz
+  script: rsync -r --port=7822 --delete-after --quiet $TRAVIS_BUILD_DIR/build getcoac1@nl1-ts1.a2hosting.com:/home/getcoac1/coachified.xyz
   on:
     branch: staging
 - provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/build --port=7822 getcoac1@nl1-ts1.a2hosting.com:/home/getcoac1/coachified.app
+  script: rsync -r --port=7822 --delete-after --quiet $TRAVIS_BUILD_DIR/build getcoac1@nl1-ts1.a2hosting.com:/home/getcoac1/coachified.app
   on:
     branch: master
 env:
