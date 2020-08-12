@@ -8,19 +8,19 @@ export const AUTH_STATE_CHANGED = 'AUTH_STATE_CHANGED';
 // Other Constants
 //
 
-export interface Session { authUser: null }
+export interface Session { authUser: any }
 
 //
 // Type Interfaces
 //
 
-export interface AuthStateChangedAction { type: typeof AUTH_STATE_CHANGED; authUser: null }
+export interface AuthStateChangedAction { type: typeof AUTH_STATE_CHANGED; authUser: any }
 
 //
 // Action Creators
 //
 
-export function authStateChanged(authUser: null): AuthStateChangedAction {
+export function authStateChanged(authUser: any): AuthStateChangedAction {
     return {
         type: AUTH_STATE_CHANGED,
         authUser,

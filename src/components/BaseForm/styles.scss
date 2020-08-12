@@ -1,5 +1,19 @@
 @import '../../styles/imports';
 
+.base-form {
+    .form-title {
+        margin: 2rem;
+        margin-bottom: 0;
+    }
+
+    .form-error {
+        height: 1.2rem;
+        margin: 0 0 0.5rem 2rem;
+        font-size: 0.7rem;
+        color: $error;
+    }
+}
+
 .text-input {
     display: flex;
     flex-direction: column;
@@ -63,4 +77,11 @@
         background-color: $white;
         color: $primary;
     }
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
 }

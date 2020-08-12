@@ -1,4 +1,6 @@
+import BaseForm from './baseform';
 import Button from './button';
+import StepForm from './stepform';
 import TextInput from './textInput';
 
-export { Button, TextInput };
+export { BaseForm, Button, StepForm, TextInput };

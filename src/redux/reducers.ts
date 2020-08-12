@@ -1,7 +1,7 @@
 import { AuthStateChangedAction, AUTH_STATE_CHANGED, Session } from './actions';
 
 const initialAuthState: Session = {
-    authUser: null,
+    authUser: false,
 }
 
 export function authStateReducer(state: Session = initialAuthState, action: AuthStateChangedAction): Session {

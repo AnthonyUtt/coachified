@@ -1,25 +1,21 @@
-import React from 'react';
-import { Formik, Form } from 'formik';
+import React, { useState } from 'react';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import { Button, TextInput } from '../BaseForm';
+import { BaseForm as Form, Button, TextInput } from '../BaseForm';
 
-import { SignUpWithEmailAndPassword } from '../../services/auth';
+import { LogInWithEmailAndPassword } from '../../services/auth';
 
 const SignInForm = () => {
+    const [ error, setError ] = useState<any>();
     return (
+        <>
         <Formik
             initialValues={{
-                firstName: '',
-                lastName: '',
                 email: '',
                 password: '',
             }}
             validationSchema={Yup.object({
-                firstName: Yup.string()
-                    .required('Required'),
-                lastName: Yup.string()
-                    .required('Required'),
                 email: Yup.string()
                     .email('Invalid email address')
                     .required('Required'),
@@ -27,18 +23,29 @@ const SignInForm = () => {
                     .required('Required'),
             })}
             onSubmit={(values, { setSubmitting }) => {
-                SignUpWithEmailAndPassword(values.email, values.password);
+                setError(null);
+                LogInWithEmailAndPassword(values.email, values.password)
+                    .then((valid) => {
+                        
+                    })
+                    .catch(err => setError(err));
                 setSubmitting(false);
             }}
         >
-            <Form>
-                <TextInput label="First Name" name="firstName" />
-                <TextInput label="Last Name" name="lastName" />
+            <Form title="Sign In">
+                <div className="form-error">
+                    {
+                        error
+                        ? error.message
+                        : ''
+                    }
+                </div>
                 <TextInput label="Email Address" name="email" type="email" />
                 <TextInput label="Password" name="password" type="password" />
                 <Button type="submit" label="Submit" variant="secondary" />
             </Form>
         </Formik>
+        </>
     );
 };
 
