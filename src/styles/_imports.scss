@@ -42,7 +42,7 @@ $gradient: linear-gradient(171deg, $secondary 26%, $primary 100%);
 html,
 body {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
 
     color: $darkGray;
@@ -53,34 +53,6 @@ a {
     color: $secondary;
 
     &:hover {
-        color: $primary;
-    }
-}
-
-.btn {
-    display: block;
-    width: fit-content;
-    margin: 15px auto;
-
-    border: none;
-    border-radius: 5px;
-    background-color: $primary;
-    color: $white;
-    
-    padding: 14px 16px;
-
-    &.btn-secondary {
-        background-color: $secondary;
-        color: $white;
-    }
-
-    &.btn-dark {
-        background-color: $darkGray;
-        color: $white;
-    }
-
-    &.btn-light {
-        background-color: $white;
         color: $primary;
     }
 }
